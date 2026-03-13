@@ -1,0 +1,382 @@
+openapi: 3.1.0
+info:
+  title: Google Cloud VMware Engine API
+  description: >-
+    Programmatically manages VMware private clouds, clusters, and network
+    resources on Google Cloud.
+  version: 1.0.0
+  contact:
+    name: Google Cloud
+    url: https://cloud.google.com/vmware-engine
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+  - url: https://vmwareengine.googleapis.com/v1
+    description: Google Cloud VMware Engine API v1
+tags:
+  - name: PrivateClouds
+    description: Manage VMware private clouds
+  - name: Clusters
+    description: Manage clusters within private clouds
+  - name: NetworkPolicies
+    description: Manage network policies
+paths:
+  /projects/{project}/locations/{location}/privateClouds:
+    get:
+      operationId: listPrivateClouds
+      summary: List Private Clouds
+      description: Lists private clouds in a given project and location.
+      tags:
+        - PrivateClouds
+      parameters:
+        - name: project
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: location
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  privateClouds:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/PrivateCloud'
+                  nextPageToken:
+                    type: string
+    post:
+      operationId: createPrivateCloud
+      summary: Create Private Cloud
+      description: Creates a new private cloud resource in a given project and location.
+      tags:
+        - PrivateClouds
+      parameters:
+        - name: project
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: location
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PrivateCloud'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+  /projects/{project}/locations/{location}/privateClouds/{privateCloudId}:
+    get:
+      operationId: getPrivateCloud
+      summary: Get Private Cloud
+      description: Retrieves a private cloud resource by its name.
+      tags:
+        - PrivateClouds
+      parameters:
+        - name: project
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: location
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: privateCloudId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PrivateCloud'
+    delete:
+      operationId: deletePrivateCloud
+      summary: Delete Private Cloud
+      description: Schedules a private cloud resource for deletion.
+      tags:
+        - PrivateClouds
+      parameters:
+        - name: project
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: location
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: privateCloudId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+  /projects/{project}/locations/{location}/privateClouds/{privateCloudId}/clusters:
+    get:
+      operationId: listClusters
+      summary: List Clusters
+      description: Lists clusters in a given private cloud.
+      tags:
+        - Clusters
+      parameters:
+        - name: project
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: location
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: privateCloudId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  clusters:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Cluster'
+                  nextPageToken:
+                    type: string
+    post:
+      operationId: createCluster
+      summary: Create Cluster
+      description: Creates a new cluster in a given private cloud.
+      tags:
+        - Clusters
+      parameters:
+        - name: project
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: location
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: privateCloudId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Cluster'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+  /projects/{project}/locations/{location}/networkPolicies:
+    get:
+      operationId: listNetworkPolicies
+      summary: List Network Policies
+      description: Lists network policies in a given project and location.
+      tags:
+        - NetworkPolicies
+      parameters:
+        - name: project
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: location
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  networkPolicies:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/NetworkPolicy'
+                  nextPageToken:
+                    type: string
+components:
+  schemas:
+    PrivateCloud:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        state:
+          type: string
+          enum:
+            - STATE_UNSPECIFIED
+            - ACTIVE
+            - CREATING
+            - UPDATING
+            - FAILED
+            - DELETED
+            - PURGING
+        networkConfig:
+          type: object
+          properties:
+            managementCidr:
+              type: string
+            vmwareEngineNetwork:
+              type: string
+        managementCluster:
+          type: object
+          properties:
+            clusterId:
+              type: string
+            nodeTypeConfigs:
+              type: object
+              additionalProperties:
+                type: object
+                properties:
+                  nodeCount:
+                    type: integer
+        createTime:
+          type: string
+          format: date-time
+        updateTime:
+          type: string
+          format: date-time
+        expireTime:
+          type: string
+          format: date-time
+    Cluster:
+      type: object
+      properties:
+        name:
+          type: string
+        state:
+          type: string
+          enum:
+            - STATE_UNSPECIFIED
+            - ACTIVE
+            - CREATING
+            - UPDATING
+            - DELETING
+            - REPAIRING
+        nodeTypeConfigs:
+          type: object
+          additionalProperties:
+            type: object
+            properties:
+              nodeCount:
+                type: integer
+        createTime:
+          type: string
+          format: date-time
+        updateTime:
+          type: string
+          format: date-time
+    NetworkPolicy:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        internetAccess:
+          type: object
+          properties:
+            enabled:
+              type: boolean
+            state:
+              type: string
+        externalIp:
+          type: object
+          properties:
+            enabled:
+              type: boolean
+            state:
+              type: string
+        edgeServicesCidr:
+          type: string
+        vmwareEngineNetwork:
+          type: string
+        createTime:
+          type: string
+          format: date-time
+        updateTime:
+          type: string
+          format: date-time
+    Operation:
+      type: object
+      properties:
+        name:
+          type: string
+        done:
+          type: boolean
+        error:
+          type: object
+          properties:
+            code:
+              type: integer
+            message:
+              type: string
+        response:
+          type: object
+        metadata:
+          type: object
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://accounts.google.com/o/oauth2/auth
+          tokenUrl: https://oauth2.googleapis.com/token
+          scopes:
+            https://www.googleapis.com/auth/cloud-platform: Full access to Google Cloud Platform
+security:
+  - oauth2:
+      - https://www.googleapis.com/auth/cloud-platform

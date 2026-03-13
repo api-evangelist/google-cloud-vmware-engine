@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-search/google-cloud-vmware-engine/refs/heads/main/json-schema/vmwareengine-privatecloud.json",
+  "title": "Google Cloud VMware Engine Private Cloud",
+  "description": "Represents a VMware Engine private cloud resource, including its configuration, state, network settings, and management cluster.",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The resource name of this private cloud."
+    },
+    "description": {
+      "type": "string",
+      "description": "User-provided description for this private cloud."
+    },
+    "state": {
+      "type": "string",
+      "description": "State of the resource.",
+      "enum": [
+        "STATE_UNSPECIFIED",
+        "ACTIVE",
+        "CREATING",
+        "UPDATING",
+        "FAILED",
+        "DELETED",
+        "PURGING"
+      ]
+    },
+    "networkConfig": {
+      "type": "object",
+      "description": "Network configuration for the private cloud.",
+      "properties": {
+        "managementCidr": {
+          "type": "string",
+          "description": "Management CIDR used by VMware management appliances."
+        },
+        "vmwareEngineNetwork": {
+          "type": "string",
+          "description": "The relative resource name of the VMware Engine network."
+        }
+      }
+    },
+    "managementCluster": {
+      "type": "object",
+      "description": "The management cluster for this private cloud.",
+      "properties": {
+        "clusterId": {
+          "type": "string",
+          "description": "The user-provided identifier of the management cluster."
+        },
+        "nodeTypeConfigs": {
+          "type": "object",
+          "description": "Node type configurations for the management cluster.",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "nodeCount": {
+                "type": "integer"
+              }
+            }
+          }
+        }
+      }
+    },
+    "createTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Creation time of the resource."
+    },
+    "updateTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Last update time of the resource."
+    },
+    "expireTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Time when the resource will be irreversibly purged."
+    }
+  },
+  "required": ["name"]
+}

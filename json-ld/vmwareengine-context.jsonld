@@ -1,0 +1,29 @@
+{
+  "@context": {
+    "@vocab": "https://cloud.google.com/vmware-engine/schema#",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "gcp": "https://cloud.google.com/schema#",
+    "PrivateCloud": "gcp:VMwareEnginePrivateCloud",
+    "Cluster": "gcp:VMwareEngineCluster",
+    "NetworkPolicy": "gcp:VMwareEngineNetworkPolicy",
+    "name": "schema:name",
+    "description": "schema:description",
+    "state": "gcp:state",
+    "managementCidr": "gcp:managementCidr",
+    "vmwareEngineNetwork": "gcp:vmwareEngineNetwork",
+    "createTime": {
+      "@id": "dcterms:created",
+      "@type": "xsd:dateTime"
+    },
+    "updateTime": {
+      "@id": "dcterms:modified",
+      "@type": "xsd:dateTime"
+    },
+    "nodeCount": {
+      "@id": "gcp:nodeCount",
+      "@type": "xsd:integer"
+    }
+  }
+}
