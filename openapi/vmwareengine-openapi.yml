@@ -15,12 +15,12 @@ servers:
   - url: https://vmwareengine.googleapis.com/v1
     description: Google Cloud VMware Engine API v1
 tags:
-  - name: PrivateClouds
-    description: Manage VMware private clouds
   - name: Clusters
     description: Manage clusters within private clouds
   - name: NetworkPolicies
     description: Manage network policies
+  - name: PrivateClouds
+    description: Manage VMware private clouds
 paths:
   /projects/{project}/locations/{location}/privateClouds:
     get:

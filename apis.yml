@@ -12,12 +12,12 @@ created: '2026-03-13'
 modified: '2026-03-13'
 specificationVersion: '0.18'
 tags:
+  - Compute
   - Google Cloud
-  - VMware
-  - Virtualization
   - Migration
   - Private Cloud
-  - Compute
+  - Virtualization
+  - VMware
 apis:
   - name: Google Cloud VMware Engine API
     description: >-
@@ -28,10 +28,10 @@ apis:
     humanURL: https://cloud.google.com/vmware-engine/docs/reference/rest
     baseURL: https://vmwareengine.googleapis.com
     tags:
-      - Private Clouds
       - Clusters
-      - Nodes
       - Network Policies
+      - Nodes
+      - Private Clouds
       - VMware
     properties:
       - type: OpenAPI
