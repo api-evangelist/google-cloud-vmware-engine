@@ -25,7 +25,7 @@ paths:
   /projects/{project}/locations/{location}/privateClouds:
     get:
       operationId: listPrivateClouds
-      summary: List Private Clouds
+      summary: Google Cloud VMware Engine List Private Clouds
       description: Lists private clouds in a given project and location.
       tags:
         - PrivateClouds
@@ -56,7 +56,7 @@ paths:
                     type: string
     post:
       operationId: createPrivateCloud
-      summary: Create Private Cloud
+      summary: Google Cloud VMware Engine Create Private Cloud
       description: Creates a new private cloud resource in a given project and location.
       tags:
         - PrivateClouds
@@ -86,7 +86,7 @@ paths:
   /projects/{project}/locations/{location}/privateClouds/{privateCloudId}:
     get:
       operationId: getPrivateCloud
-      summary: Get Private Cloud
+      summary: Google Cloud VMware Engine Get Private Cloud
       description: Retrieves a private cloud resource by its name.
       tags:
         - PrivateClouds
@@ -115,7 +115,7 @@ paths:
                 $ref: '#/components/schemas/PrivateCloud'
     delete:
       operationId: deletePrivateCloud
-      summary: Delete Private Cloud
+      summary: Google Cloud VMware Engine Delete Private Cloud
       description: Schedules a private cloud resource for deletion.
       tags:
         - PrivateClouds
@@ -145,7 +145,7 @@ paths:
   /projects/{project}/locations/{location}/privateClouds/{privateCloudId}/clusters:
     get:
       operationId: listClusters
-      summary: List Clusters
+      summary: Google Cloud VMware Engine List Clusters
       description: Lists clusters in a given private cloud.
       tags:
         - Clusters
@@ -181,7 +181,7 @@ paths:
                     type: string
     post:
       operationId: createCluster
-      summary: Create Cluster
+      summary: Google Cloud VMware Engine Create Cluster
       description: Creates a new cluster in a given private cloud.
       tags:
         - Clusters
@@ -216,7 +216,7 @@ paths:
   /projects/{project}/locations/{location}/networkPolicies:
     get:
       operationId: listNetworkPolicies
-      summary: List Network Policies
+      summary: Google Cloud VMware Engine List Network Policies
       description: Lists network policies in a given project and location.
       tags:
         - NetworkPolicies
