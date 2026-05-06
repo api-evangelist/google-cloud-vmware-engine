@@ -1,0 +1,454 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Google Cloud VMware Engine API
+  description: Programmatically manages VMware private clouds, clusters, and network resources on Google Cloud.
+  tags:
+  - Google
+  - Cloud
+  - Vmware
+  - Engine
+  - API
+  created: '2026-05-06'
+  modified: '2026-05-06'
+capability:
+  consumes:
+  - type: http
+    namespace: google-cloud-vmware-engine
+    baseUri: https://vmwareengine.googleapis.com/v1
+    description: Google Cloud VMware Engine API HTTP API.
+    authentication:
+      type: bearer
+      token: '{{GOOGLE_CLOUD_VMWARE_ENGINE_TOKEN}}'
+    resources:
+    - name: projects-project-locations-location-privatecloud
+      path: /projects/{project}/locations/{location}/privateClouds
+      operations:
+      - name: listprivateclouds
+        method: GET
+        description: Google Cloud VMware Engine List Private Clouds
+        inputParameters:
+        - name: project
+          in: path
+          type: string
+          required: true
+        - name: location
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createprivatecloud
+        method: POST
+        description: Google Cloud VMware Engine Create Private Cloud
+        inputParameters:
+        - name: project
+          in: path
+          type: string
+          required: true
+        - name: location
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: projects-project-locations-location-privatecloud
+      path: /projects/{project}/locations/{location}/privateClouds/{privateCloudId}
+      operations:
+      - name: getprivatecloud
+        method: GET
+        description: Google Cloud VMware Engine Get Private Cloud
+        inputParameters:
+        - name: project
+          in: path
+          type: string
+          required: true
+        - name: location
+          in: path
+          type: string
+          required: true
+        - name: privateCloudId
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deleteprivatecloud
+        method: DELETE
+        description: Google Cloud VMware Engine Delete Private Cloud
+        inputParameters:
+        - name: project
+          in: path
+          type: string
+          required: true
+        - name: location
+          in: path
+          type: string
+          required: true
+        - name: privateCloudId
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: projects-project-locations-location-privatecloud
+      path: /projects/{project}/locations/{location}/privateClouds/{privateCloudId}/clusters
+      operations:
+      - name: listclusters
+        method: GET
+        description: Google Cloud VMware Engine List Clusters
+        inputParameters:
+        - name: project
+          in: path
+          type: string
+          required: true
+        - name: location
+          in: path
+          type: string
+          required: true
+        - name: privateCloudId
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createcluster
+        method: POST
+        description: Google Cloud VMware Engine Create Cluster
+        inputParameters:
+        - name: project
+          in: path
+          type: string
+          required: true
+        - name: location
+          in: path
+          type: string
+          required: true
+        - name: privateCloudId
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: projects-project-locations-location-networkpolic
+      path: /projects/{project}/locations/{location}/networkPolicies
+      operations:
+      - name: listnetworkpolicies
+        method: GET
+        description: Google Cloud VMware Engine List Network Policies
+        inputParameters:
+        - name: project
+          in: path
+          type: string
+          required: true
+        - name: location
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    port: 8080
+    namespace: google-cloud-vmware-engine-rest
+    description: REST adapter for Google Cloud VMware Engine API.
+    resources:
+    - path: /projects/{project}/locations/{location}/privateClouds
+      name: listprivateclouds
+      operations:
+      - method: GET
+        name: listprivateclouds
+        description: Google Cloud VMware Engine List Private Clouds
+        call: google-cloud-vmware-engine.listprivateclouds
+        with:
+          project: rest.project
+          location: rest.location
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /projects/{project}/locations/{location}/privateClouds
+      name: createprivatecloud
+      operations:
+      - method: POST
+        name: createprivatecloud
+        description: Google Cloud VMware Engine Create Private Cloud
+        call: google-cloud-vmware-engine.createprivatecloud
+        with:
+          project: rest.project
+          location: rest.location
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /projects/{project}/locations/{location}/privateClouds/{privateCloudId}
+      name: getprivatecloud
+      operations:
+      - method: GET
+        name: getprivatecloud
+        description: Google Cloud VMware Engine Get Private Cloud
+        call: google-cloud-vmware-engine.getprivatecloud
+        with:
+          project: rest.project
+          location: rest.location
+          privateCloudId: rest.privateCloudId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /projects/{project}/locations/{location}/privateClouds/{privateCloudId}
+      name: deleteprivatecloud
+      operations:
+      - method: DELETE
+        name: deleteprivatecloud
+        description: Google Cloud VMware Engine Delete Private Cloud
+        call: google-cloud-vmware-engine.deleteprivatecloud
+        with:
+          project: rest.project
+          location: rest.location
+          privateCloudId: rest.privateCloudId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /projects/{project}/locations/{location}/privateClouds/{privateCloudId}/clusters
+      name: listclusters
+      operations:
+      - method: GET
+        name: listclusters
+        description: Google Cloud VMware Engine List Clusters
+        call: google-cloud-vmware-engine.listclusters
+        with:
+          project: rest.project
+          location: rest.location
+          privateCloudId: rest.privateCloudId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /projects/{project}/locations/{location}/privateClouds/{privateCloudId}/clusters
+      name: createcluster
+      operations:
+      - method: POST
+        name: createcluster
+        description: Google Cloud VMware Engine Create Cluster
+        call: google-cloud-vmware-engine.createcluster
+        with:
+          project: rest.project
+          location: rest.location
+          privateCloudId: rest.privateCloudId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /projects/{project}/locations/{location}/networkPolicies
+      name: listnetworkpolicies
+      operations:
+      - method: GET
+        name: listnetworkpolicies
+        description: Google Cloud VMware Engine List Network Policies
+        call: google-cloud-vmware-engine.listnetworkpolicies
+        with:
+          project: rest.project
+          location: rest.location
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9090
+    namespace: google-cloud-vmware-engine-mcp
+    transport: http
+    description: MCP adapter for Google Cloud VMware Engine API for AI agent use.
+    tools:
+    - name: listprivateclouds
+      description: Google Cloud VMware Engine List Private Clouds
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: google-cloud-vmware-engine.listprivateclouds
+      with:
+        project: tools.project
+        location: tools.location
+      inputParameters:
+      - name: project
+        type: string
+        description: project
+        required: true
+      - name: location
+        type: string
+        description: location
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createprivatecloud
+      description: Google Cloud VMware Engine Create Private Cloud
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: google-cloud-vmware-engine.createprivatecloud
+      with:
+        project: tools.project
+        location: tools.location
+      inputParameters:
+      - name: project
+        type: string
+        description: project
+        required: true
+      - name: location
+        type: string
+        description: location
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getprivatecloud
+      description: Google Cloud VMware Engine Get Private Cloud
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: google-cloud-vmware-engine.getprivatecloud
+      with:
+        project: tools.project
+        location: tools.location
+        privateCloudId: tools.privateCloudId
+      inputParameters:
+      - name: project
+        type: string
+        description: project
+        required: true
+      - name: location
+        type: string
+        description: location
+        required: true
+      - name: privateCloudId
+        type: string
+        description: privateCloudId
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deleteprivatecloud
+      description: Google Cloud VMware Engine Delete Private Cloud
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: google-cloud-vmware-engine.deleteprivatecloud
+      with:
+        project: tools.project
+        location: tools.location
+        privateCloudId: tools.privateCloudId
+      inputParameters:
+      - name: project
+        type: string
+        description: project
+        required: true
+      - name: location
+        type: string
+        description: location
+        required: true
+      - name: privateCloudId
+        type: string
+        description: privateCloudId
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listclusters
+      description: Google Cloud VMware Engine List Clusters
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: google-cloud-vmware-engine.listclusters
+      with:
+        project: tools.project
+        location: tools.location
+        privateCloudId: tools.privateCloudId
+      inputParameters:
+      - name: project
+        type: string
+        description: project
+        required: true
+      - name: location
+        type: string
+        description: location
+        required: true
+      - name: privateCloudId
+        type: string
+        description: privateCloudId
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createcluster
+      description: Google Cloud VMware Engine Create Cluster
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: google-cloud-vmware-engine.createcluster
+      with:
+        project: tools.project
+        location: tools.location
+        privateCloudId: tools.privateCloudId
+      inputParameters:
+      - name: project
+        type: string
+        description: project
+        required: true
+      - name: location
+        type: string
+        description: location
+        required: true
+      - name: privateCloudId
+        type: string
+        description: privateCloudId
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listnetworkpolicies
+      description: Google Cloud VMware Engine List Network Policies
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: google-cloud-vmware-engine.listnetworkpolicies
+      with:
+        project: tools.project
+        location: tools.location
+      inputParameters:
+      - name: project
+        type: string
+        description: project
+        required: true
+      - name: location
+        type: string
+        description: location
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+binds:
+- namespace: env
+  keys:
+    GOOGLE_CLOUD_VMWARE_ENGINE_TOKEN: GOOGLE_CLOUD_VMWARE_ENGINE_TOKEN
