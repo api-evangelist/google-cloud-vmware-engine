@@ -1,0 +1,85 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Google Cloud VMware Engine API — NetworkPolicies
+  description: 'Google Cloud VMware Engine API — NetworkPolicies. 1 operations. Lead operation: Google Cloud VMware Engine
+    List Network Policies. Self-contained Naftiko capability covering one Google Cloud Vmware Engine business surface.'
+  tags:
+  - Google Cloud Vmware Engine
+  - NetworkPolicies
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    GOOGLE_CLOUD_VMWARE_ENGINE_API_KEY: GOOGLE_CLOUD_VMWARE_ENGINE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: vmwareengine-networkpolicies
+    baseUri: https://vmwareengine.googleapis.com/v1
+    description: Google Cloud VMware Engine API — NetworkPolicies business capability. Self-contained, no shared references.
+    resources:
+    - name: projects-project-locations-location-networkPolicies
+      path: /projects/{project}/locations/{location}/networkPolicies
+      operations:
+      - name: listnetworkpolicies
+        method: GET
+        description: Google Cloud VMware Engine List Network Policies
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: project
+          in: path
+          type: string
+          required: true
+        - name: location
+          in: path
+          type: string
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.GOOGLE_CLOUD_VMWARE_ENGINE_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: vmwareengine-networkpolicies-rest
+    port: 8080
+    description: REST adapter for Google Cloud VMware Engine API — NetworkPolicies. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/projects/{project}/locations/{location}/networkpolicies
+      name: projects-project-locations-location-networkpolicies
+      description: REST surface for projects-project-locations-location-networkPolicies.
+      operations:
+      - method: GET
+        name: listnetworkpolicies
+        description: Google Cloud VMware Engine List Network Policies
+        call: vmwareengine-networkpolicies.listnetworkpolicies
+        with:
+          project: rest.project
+          location: rest.location
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: vmwareengine-networkpolicies-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Google Cloud VMware Engine API — NetworkPolicies. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: google-cloud-vmware-engine-list
+      description: Google Cloud VMware Engine List Network Policies
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: vmwareengine-networkpolicies.listnetworkpolicies
+      with:
+        project: tools.project
+        location: tools.location
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,144 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Google Cloud VMware Engine API — Clusters
+  description: 'Google Cloud VMware Engine API — Clusters. 2 operations. Lead operation: Google Cloud VMware Engine List Clusters.
+    Self-contained Naftiko capability covering one Google Cloud Vmware Engine business surface.'
+  tags:
+  - Google Cloud Vmware Engine
+  - Clusters
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    GOOGLE_CLOUD_VMWARE_ENGINE_API_KEY: GOOGLE_CLOUD_VMWARE_ENGINE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: vmwareengine-clusters
+    baseUri: https://vmwareengine.googleapis.com/v1
+    description: Google Cloud VMware Engine API — Clusters business capability. Self-contained, no shared references.
+    resources:
+    - name: projects-project-locations-location-privateClouds-privateCloudId-clusters
+      path: /projects/{project}/locations/{location}/privateClouds/{privateCloudId}/clusters
+      operations:
+      - name: listclusters
+        method: GET
+        description: Google Cloud VMware Engine List Clusters
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: project
+          in: path
+          type: string
+          required: true
+        - name: location
+          in: path
+          type: string
+          required: true
+        - name: privateCloudId
+          in: path
+          type: string
+          required: true
+      - name: createcluster
+        method: POST
+        description: Google Cloud VMware Engine Create Cluster
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: project
+          in: path
+          type: string
+          required: true
+        - name: location
+          in: path
+          type: string
+          required: true
+        - name: privateCloudId
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    authentication:
+      type: bearer
+      token: '{{env.GOOGLE_CLOUD_VMWARE_ENGINE_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: vmwareengine-clusters-rest
+    port: 8080
+    description: REST adapter for Google Cloud VMware Engine API — Clusters. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/projects/{project}/locations/{location}/privateclouds/{privatecloudid}/clusters
+      name: projects-project-locations-location-privateclouds-privatecloudid-clusters
+      description: REST surface for projects-project-locations-location-privateClouds-privateCloudId-clusters.
+      operations:
+      - method: GET
+        name: listclusters
+        description: Google Cloud VMware Engine List Clusters
+        call: vmwareengine-clusters.listclusters
+        with:
+          project: rest.project
+          location: rest.location
+          privateCloudId: rest.privateCloudId
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createcluster
+        description: Google Cloud VMware Engine Create Cluster
+        call: vmwareengine-clusters.createcluster
+        with:
+          project: rest.project
+          location: rest.location
+          privateCloudId: rest.privateCloudId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: vmwareengine-clusters-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Google Cloud VMware Engine API — Clusters. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: google-cloud-vmware-engine-list
+      description: Google Cloud VMware Engine List Clusters
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: vmwareengine-clusters.listclusters
+      with:
+        project: tools.project
+        location: tools.location
+        privateCloudId: tools.privateCloudId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-cloud-vmware-engine-create
+      description: Google Cloud VMware Engine Create Cluster
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: vmwareengine-clusters.createcluster
+      with:
+        project: tools.project
+        location: tools.location
+        privateCloudId: tools.privateCloudId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
