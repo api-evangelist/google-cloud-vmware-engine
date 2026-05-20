@@ -8,47 +8,49 @@ created: '2026-03-13'
 modified: '2026-05-19'
 specificationVersion: '0.18'
 tags:
-- Compute
-- Google Cloud
-- Migration
-- Private Cloud
-- Virtualization
-- VMware
-apis:
-- name: Google Cloud VMware Engine API
-  description: The VMware Engine API enables programmatic management of VMware private clouds, clusters, and network resources
-    on Google Cloud, including creating private clouds, managing nodes, and configuring network peering.
-  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-  humanURL: https://cloud.google.com/vmware-engine/docs/reference/rest
-  baseURL: https://vmwareengine.googleapis.com
-  tags:
-  - Clusters
-  - Network Policies
-  - Nodes
-  - Private Clouds
+  - Compute
+  - Google Cloud
+  - Migration
+  - Private Cloud
+  - Virtualization
   - VMware
-  properties:
-  - type: OpenAPI
-    url: openapi/vmwareengine-openapi.yml
-  - type: JSONSchema
-    url: json-schema/vmwareengine-privatecloud.json
-  - type: NaftikoCapability
-    url: capabilities/vmwareengine-clusters.yaml
-  - type: NaftikoCapability
-    url: capabilities/vmwareengine-networkpolicies.yaml
-  - type: NaftikoCapability
-    url: capabilities/vmwareengine-privateclouds.yaml
+apis:
+  - name: Google Cloud VMware Engine API
+    description: The VMware Engine API enables programmatic management of VMware private clouds, clusters, and network resources
+      on Google Cloud, including creating private clouds, managing nodes, and configuring network peering.
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://cloud.google.com/vmware-engine/docs/reference/rest
+    baseURL: https://vmwareengine.googleapis.com
+    tags:
+    - Clusters
+    - Network Policies
+    - Nodes
+    - Private Clouds
+    - VMware
+    properties:
+    - type: OpenAPI
+      url: openapi/vmwareengine-openapi.yml
+    - type: JSONSchema
+      url: json-schema/vmwareengine-privatecloud.json
+    - type: NaftikoCapability
+      url: capabilities/vmwareengine-clusters.yaml
+    - type: NaftikoCapability
+      url: capabilities/vmwareengine-networkpolicies.yaml
+    - type: NaftikoCapability
+      url: capabilities/vmwareengine-privateclouds.yaml
 common:
-- type: GettingStarted
-  url: https://cloud.google.com/vmware-engine/docs/quickstart
-- type: Pricing
-  url: https://cloud.google.com/vmware-engine/pricing
-- type: JSONLD
-  url: json-ld/vmwareengine-context.jsonld
-- type: Integrations
-  url: https://cloud.google.com/marketplace
+  - type: GitHubOrganization
+    url: https://github.com/googleapis
+  - type: GettingStarted
+    url: https://cloud.google.com/vmware-engine/docs/quickstart
+  - type: Pricing
+    url: https://cloud.google.com/vmware-engine/pricing
+  - type: JSONLD
+    url: json-ld/vmwareengine-context.jsonld
+  - type: Integrations
+    url: https://cloud.google.com/marketplace
 integrations:
-- name: Become a Partner
+  - name: Become a Partner
 maintainers:
-- FN: Kin Lane
-  email: kin@apievangelist.com
+  - FN: Kin Lane
+    email: kin@apievangelist.com
