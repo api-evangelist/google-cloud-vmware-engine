@@ -1,0 +1,235 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Google Cloud VMware Engine API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "accessTokenUrl": "https://oauth2.googleapis.com/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "PrivateClouds",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Cloud VMware Engine List Private Clouds",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://vmwareengine.googleapis.com/v1/projects/:project/locations/:location/privateClouds",
+            "params": [
+              {
+                "name": "project",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "location",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Lists private clouds in a given project and location."
+        },
+        {
+          "info": {
+            "name": "Google Cloud VMware Engine Create Private Cloud",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://vmwareengine.googleapis.com/v1/projects/:project/locations/:location/privateClouds",
+            "params": [
+              {
+                "name": "project",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "location",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new private cloud resource in a given project and location."
+        },
+        {
+          "info": {
+            "name": "Google Cloud VMware Engine Get Private Cloud",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://vmwareengine.googleapis.com/v1/projects/:project/locations/:location/privateClouds/:privateCloudId",
+            "params": [
+              {
+                "name": "project",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "location",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "privateCloudId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieves a private cloud resource by its name."
+        },
+        {
+          "info": {
+            "name": "Google Cloud VMware Engine Delete Private Cloud",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://vmwareengine.googleapis.com/v1/projects/:project/locations/:location/privateClouds/:privateCloudId",
+            "params": [
+              {
+                "name": "project",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "location",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "privateCloudId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Schedules a private cloud resource for deletion."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Clusters",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Cloud VMware Engine List Clusters",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://vmwareengine.googleapis.com/v1/projects/:project/locations/:location/privateClouds/:privateCloudId/clusters",
+            "params": [
+              {
+                "name": "project",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "location",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "privateCloudId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Lists clusters in a given private cloud."
+        },
+        {
+          "info": {
+            "name": "Google Cloud VMware Engine Create Cluster",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://vmwareengine.googleapis.com/v1/projects/:project/locations/:location/privateClouds/:privateCloudId/clusters",
+            "params": [
+              {
+                "name": "project",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "location",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "privateCloudId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new cluster in a given private cloud."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "NetworkPolicies",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Cloud VMware Engine List Network Policies",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://vmwareengine.googleapis.com/v1/projects/:project/locations/:location/networkPolicies",
+            "params": [
+              {
+                "name": "project",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "location",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Lists network policies in a given project and location."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
