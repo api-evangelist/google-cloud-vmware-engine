@@ -35,6 +35,12 @@ apis:
       - type: JSONSchema
         url: json-schema/vmwareengine-privatecloud.json
 common:
+  - type: VulnerabilityDisclosure
+    url: security/google-cloud-vmware-engine-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/google-cloud-vmware-engine-domain-security.yml
+  - type: Authentication
+    url: authentication/google-cloud-vmware-engine-authentication.yml
   - type: OAuthScopes
     url: scopes/google-cloud-vmware-engine-scopes.yml
   - type: GitHubOrganization
