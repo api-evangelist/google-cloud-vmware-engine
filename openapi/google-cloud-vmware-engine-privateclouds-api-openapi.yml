@@ -1,0 +1,215 @@
+openapi: 3.1.0
+info:
+  title: Google Cloud VMware Engine Clusters PrivateClouds API
+  description: Programmatically manages VMware private clouds, clusters, and network resources on Google Cloud.
+  version: 1.0.0
+  contact:
+    name: Google Cloud
+    url: https://cloud.google.com/vmware-engine
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+- url: https://vmwareengine.googleapis.com/v1
+  description: Google Cloud VMware Engine API v1
+security:
+- oauth2:
+  - https://www.googleapis.com/auth/cloud-platform
+tags:
+- name: PrivateClouds
+  description: Manage VMware private clouds
+paths:
+  /projects/{project}/locations/{location}/privateClouds:
+    get:
+      operationId: listPrivateClouds
+      summary: Google Cloud VMware Engine List Private Clouds
+      description: Lists private clouds in a given project and location.
+      tags:
+      - PrivateClouds
+      parameters:
+      - name: project
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: location
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  privateClouds:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/PrivateCloud'
+                  nextPageToken:
+                    type: string
+    post:
+      operationId: createPrivateCloud
+      summary: Google Cloud VMware Engine Create Private Cloud
+      description: Creates a new private cloud resource in a given project and location.
+      tags:
+      - PrivateClouds
+      parameters:
+      - name: project
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: location
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PrivateCloud'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+  /projects/{project}/locations/{location}/privateClouds/{privateCloudId}:
+    get:
+      operationId: getPrivateCloud
+      summary: Google Cloud VMware Engine Get Private Cloud
+      description: Retrieves a private cloud resource by its name.
+      tags:
+      - PrivateClouds
+      parameters:
+      - name: project
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: location
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: privateCloudId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PrivateCloud'
+    delete:
+      operationId: deletePrivateCloud
+      summary: Google Cloud VMware Engine Delete Private Cloud
+      description: Schedules a private cloud resource for deletion.
+      tags:
+      - PrivateClouds
+      parameters:
+      - name: project
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: location
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: privateCloudId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+components:
+  schemas:
+    Operation:
+      type: object
+      properties:
+        name:
+          type: string
+        done:
+          type: boolean
+        error:
+          type: object
+          properties:
+            code:
+              type: integer
+            message:
+              type: string
+        response:
+          type: object
+        metadata:
+          type: object
+    PrivateCloud:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        state:
+          type: string
+          enum:
+          - STATE_UNSPECIFIED
+          - ACTIVE
+          - CREATING
+          - UPDATING
+          - FAILED
+          - DELETED
+          - PURGING
+        networkConfig:
+          type: object
+          properties:
+            managementCidr:
+              type: string
+            vmwareEngineNetwork:
+              type: string
+        managementCluster:
+          type: object
+          properties:
+            clusterId:
+              type: string
+            nodeTypeConfigs:
+              type: object
+              additionalProperties:
+                type: object
+                properties:
+                  nodeCount:
+                    type: integer
+        createTime:
+          type: string
+          format: date-time
+        updateTime:
+          type: string
+          format: date-time
+        expireTime:
+          type: string
+          format: date-time
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://accounts.google.com/o/oauth2/auth
+          tokenUrl: https://oauth2.googleapis.com/token
+          scopes:
+            https://www.googleapis.com/auth/cloud-platform: Full access to Google Cloud Platform

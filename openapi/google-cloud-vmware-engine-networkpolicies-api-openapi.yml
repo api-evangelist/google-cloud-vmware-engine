@@ -1,0 +1,95 @@
+openapi: 3.1.0
+info:
+  title: Google Cloud VMware Engine Clusters NetworkPolicies API
+  description: Programmatically manages VMware private clouds, clusters, and network resources on Google Cloud.
+  version: 1.0.0
+  contact:
+    name: Google Cloud
+    url: https://cloud.google.com/vmware-engine
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+- url: https://vmwareengine.googleapis.com/v1
+  description: Google Cloud VMware Engine API v1
+security:
+- oauth2:
+  - https://www.googleapis.com/auth/cloud-platform
+tags:
+- name: NetworkPolicies
+  description: Manage network policies
+paths:
+  /projects/{project}/locations/{location}/networkPolicies:
+    get:
+      operationId: listNetworkPolicies
+      summary: Google Cloud VMware Engine List Network Policies
+      description: Lists network policies in a given project and location.
+      tags:
+      - NetworkPolicies
+      parameters:
+      - name: project
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: location
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  networkPolicies:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/NetworkPolicy'
+                  nextPageToken:
+                    type: string
+components:
+  schemas:
+    NetworkPolicy:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        internetAccess:
+          type: object
+          properties:
+            enabled:
+              type: boolean
+            state:
+              type: string
+        externalIp:
+          type: object
+          properties:
+            enabled:
+              type: boolean
+            state:
+              type: string
+        edgeServicesCidr:
+          type: string
+        vmwareEngineNetwork:
+          type: string
+        createTime:
+          type: string
+          format: date-time
+        updateTime:
+          type: string
+          format: date-time
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://accounts.google.com/o/oauth2/auth
+          tokenUrl: https://oauth2.googleapis.com/token
+          scopes:
+            https://www.googleapis.com/auth/cloud-platform: Full access to Google Cloud Platform
