@@ -1,0 +1,18 @@
+{
+  "provider": "google-cloud-vmware-engine",
+  "sources": [
+    "google-cloud-vmware-engine-clusters-api-openapi.yml",
+    "google-cloud-vmware-engine-networkpolicies-api-openapi.yml",
+    "google-cloud-vmware-engine-privateclouds-api-openapi.yml"
+  ],
+  "outputs": [
+    "google-cloud-vmware-engine-clusters-api-openapi.yml",
+    "google-cloud-vmware-engine-networkpolicies-api-openapi.yml",
+    "google-cloud-vmware-engine-privateclouds-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
