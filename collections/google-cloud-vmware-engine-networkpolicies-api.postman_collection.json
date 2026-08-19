@@ -1,0 +1,169 @@
+{
+  "item": [
+    {
+      "id": "6d346b41-6028-43e9-ade5-4805eb5b90d7",
+      "name": "NetworkPolicies",
+      "description": {
+        "content": "Manage network policies",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "49b0829b-3bf9-4fc9-92d0-5d66f15e973c",
+          "name": "Google Cloud VMware Engine List Network Policies",
+          "request": {
+            "name": "Google Cloud VMware Engine List Network Policies",
+            "description": {
+              "content": "Lists network policies in a given project and location.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "projects",
+                ":project",
+                "locations",
+                ":location",
+                "networkPolicies"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "project",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "location",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ef35d76b-a8e6-4e49-b173-7fd03fbec096",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":project",
+                    "locations",
+                    ":location",
+                    "networkPolicies"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "location",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"networkPolicies\": [\n    {\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"internetAccess\": {\n        \"enabled\": false,\n        \"state\": \"string\"\n      },\n      \"externalIp\": {\n        \"enabled\": false,\n        \"state\": \"string\"\n      },\n      \"edgeServicesCidr\": \"string\",\n      \"vmwareEngineNetwork\": \"string\",\n      \"createTime\": \"1988-09-20T03:13:46.193Z\",\n      \"updateTime\": \"2002-03-09T19:46:20.901Z\"\n    },\n    {\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"internetAccess\": {\n        \"enabled\": true,\n        \"state\": \"string\"\n      },\n      \"externalIp\": {\n        \"enabled\": true,\n        \"state\": \"string\"\n      },\n      \"edgeServicesCidr\": \"string\",\n      \"vmwareEngineNetwork\": \"string\",\n      \"createTime\": \"2019-01-30T12:26:03.575Z\",\n      \"updateTime\": \"1992-03-25T08:57:31.288Z\"\n    }\n  ],\n  \"nextPageToken\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://vmwareengine.googleapis.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://www.googleapis.com/auth/cloud-platform"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://oauth2.googleapis.com/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://accounts.google.com/o/oauth2/auth"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "74d5e43b-7c8a-42fa-a7d2-48e62ab7057a",
+    "name": "Google Cloud VMware Engine Clusters NetworkPolicies API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Programmatically manages VMware private clouds, clusters, and network resources on Google Cloud.\n\nContact Support:\n Name: Google Cloud",
+      "type": "text/plain"
+    }
+  }
+}

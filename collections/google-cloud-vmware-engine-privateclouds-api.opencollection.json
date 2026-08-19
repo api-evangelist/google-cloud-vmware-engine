@@ -1,0 +1,136 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Google Cloud VMware Engine Clusters PrivateClouds API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "accessTokenUrl": "https://oauth2.googleapis.com/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "PrivateClouds",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Cloud VMware Engine List Private Clouds",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://vmwareengine.googleapis.com/v1/projects/:project/locations/:location/privateClouds",
+            "params": [
+              {
+                "name": "project",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "location",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Lists private clouds in a given project and location."
+        },
+        {
+          "info": {
+            "name": "Google Cloud VMware Engine Create Private Cloud",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://vmwareengine.googleapis.com/v1/projects/:project/locations/:location/privateClouds",
+            "params": [
+              {
+                "name": "project",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "location",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new private cloud resource in a given project and location."
+        },
+        {
+          "info": {
+            "name": "Google Cloud VMware Engine Get Private Cloud",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://vmwareengine.googleapis.com/v1/projects/:project/locations/:location/privateClouds/:privateCloudId",
+            "params": [
+              {
+                "name": "project",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "location",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "privateCloudId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieves a private cloud resource by its name."
+        },
+        {
+          "info": {
+            "name": "Google Cloud VMware Engine Delete Private Cloud",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://vmwareengine.googleapis.com/v1/projects/:project/locations/:location/privateClouds/:privateCloudId",
+            "params": [
+              {
+                "name": "project",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "location",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "privateCloudId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Schedules a private cloud resource for deletion."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
