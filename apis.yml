@@ -35,6 +35,8 @@ apis:
   humanURL: https://cloud.google.com/vmware-engine/docs/reference/rest
   baseURL: https://vmwareengine.googleapis.com
   tags:
+  - Cluster
+  tags_raw:
   - Clusters
   properties:
   - type: OpenAPI
@@ -47,6 +49,8 @@ apis:
   humanURL: https://cloud.google.com/vmware-engine/docs/reference/rest
   baseURL: https://vmwareengine.googleapis.com
   tags:
+  - Network Policies
+  tags_raw:
   - NetworkPolicies
   properties:
   - type: OpenAPI
