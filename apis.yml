@@ -3,6 +3,18 @@ description: >-
   Google Cloud VMware Engine is a fully managed service that lets you run VMware workloads natively on Google Cloud
   infrastructure. It provides dedicated, single-tenant VMware SDDC environments with vSphere, vSAN, NSX-T, and HCX,
   enabling seamless migration and management of VMware-based applications in the cloud.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
