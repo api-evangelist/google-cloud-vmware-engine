@@ -82,6 +82,8 @@ apis:
   - type: JSONSchema
     url: json-schema/vmwareengine-privatecloud.json
 common:
+  - type: Website
+    url: https://www.google.com/
   - type: AgenticAccess
     url: agentic-access/google-cloud-vmware-engine-agentic-access.yml
   - type: VulnerabilityDisclosure
@@ -109,3 +111,5 @@ integrations:
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
+x-parent: google-cloud-platform
+x-relationship: product

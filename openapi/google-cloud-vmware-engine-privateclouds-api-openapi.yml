@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Google Cloud VMware Engine Clusters PrivateClouds API
+  title: Google Cloud VMware Engine Clusters Private Clouds API
   description: Programmatically manages VMware private clouds, clusters, and network resources on Google Cloud.
   version: 1.0.0
   contact:
