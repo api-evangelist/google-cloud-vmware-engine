@@ -55,20 +55,6 @@ apis:
     url: openapi/google-cloud-vmware-engine-clusters-api-openapi.yml
   - type: JSONSchema
     url: json-schema/vmwareengine-privatecloud.json
-- aid: google-cloud-vmware-engine:google-cloud-vmware-engine-networkpolicies-api
-  name: Google Cloud VMware Engine NetworkPolicies API
-  description: Manage network policies
-  humanURL: https://cloud.google.com/vmware-engine/docs/reference/rest
-  baseURL: https://vmwareengine.googleapis.com
-  tags:
-  - Network Policies
-  tags_raw:
-  - NetworkPolicies
-  properties:
-  - type: OpenAPI
-    url: openapi/google-cloud-vmware-engine-networkpolicies-api-openapi.yml
-  - type: JSONSchema
-    url: json-schema/vmwareengine-privatecloud.json
 - aid: google-cloud-vmware-engine:google-cloud-vmware-engine-privateclouds-api
   name: Google Cloud VMware Engine PrivateClouds API
   description: Manage VMware private clouds
@@ -79,6 +65,18 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/google-cloud-vmware-engine-privateclouds-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/vmwareengine-privatecloud.json
+- aid: google-cloud-vmware-engine:google-cloud-vmware-engine-network-policies-api
+  name: Google Cloud VMware Engine Network Policies API
+  description: Manage network policies
+  humanURL: https://cloud.google.com/vmware-engine/docs/reference/rest
+  baseURL: https://vmwareengine.googleapis.com
+  tags:
+  - Network Policies
+  properties:
+  - type: OpenAPI
+    url: openapi/google-cloud-vmware-engine-network-policies-api-openapi.yml
   - type: JSONSchema
     url: json-schema/vmwareengine-privatecloud.json
 common:
