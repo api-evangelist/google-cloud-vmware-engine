@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Google Cloud VMware Engine Clusters Network Policies API
+  title: Google Cloud VMware Engine Network Policies API
   description: Programmatically manages VMware private clouds, clusters, and network resources on Google Cloud.
   version: 1.0.0
   contact:
@@ -16,7 +16,7 @@ security:
 - oauth2:
   - https://www.googleapis.com/auth/cloud-platform
 tags:
-- name: NetworkPolicies
+- name: Network Policies
   description: Manage network policies
 paths:
   /projects/{project}/locations/{location}/networkPolicies:
@@ -25,7 +25,7 @@ paths:
       summary: Google Cloud VMware Engine List Network Policies
       description: Lists network policies in a given project and location.
       tags:
-      - NetworkPolicies
+      - Network Policies
       parameters:
       - name: project
         in: path

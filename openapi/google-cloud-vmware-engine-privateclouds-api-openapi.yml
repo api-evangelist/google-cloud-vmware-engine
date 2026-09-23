@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Google Cloud VMware Engine Clusters Private Clouds API
+  title: Google Cloud VMware Engine Private Clouds API
   description: Programmatically manages VMware private clouds, clusters, and network resources on Google Cloud.
   version: 1.0.0
   contact:
@@ -141,24 +141,6 @@ paths:
                 $ref: '#/components/schemas/Operation'
 components:
   schemas:
-    Operation:
-      type: object
-      properties:
-        name:
-          type: string
-        done:
-          type: boolean
-        error:
-          type: object
-          properties:
-            code:
-              type: integer
-            message:
-              type: string
-        response:
-          type: object
-        metadata:
-          type: object
     PrivateCloud:
       type: object
       properties:
@@ -204,6 +186,24 @@ components:
         expireTime:
           type: string
           format: date-time
+    Operation:
+      type: object
+      properties:
+        name:
+          type: string
+        done:
+          type: boolean
+        error:
+          type: object
+          properties:
+            code:
+              type: integer
+            message:
+              type: string
+        response:
+          type: object
+        metadata:
+          type: object
   securitySchemes:
     oauth2:
       type: oauth2
