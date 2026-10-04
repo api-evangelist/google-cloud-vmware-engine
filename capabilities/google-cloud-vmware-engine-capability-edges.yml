@@ -1,0 +1,36 @@
+slug: google-cloud-vmware-engine
+provider: Google Cloud VMware Engine
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 2
+edges:
+- tag: Clusters
+  spec_file: google-cloud-vmware-engine-clusters-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.85
+  evidence: '"Create Cluster", "List Clusters" under /privateClouds/{privateCloudId}/clusters; "manages
+    VMware private clouds, clusters, and network resources"'
+  reason: Provisioning and listing compute clusters inside VMware private clouds is plainly cloud compute/infrastructure
+    management.
+- tag: PrivateClouds
+  spec_file: google-cloud-vmware-engine-privateclouds-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.85
+  evidence: '"Programmatically manages VMware private clouds, clusters, and network resources on Google
+    Cloud"; operations "Create Private Cloud", "Delete Private Cloud"'
+  reason: Operations provision and decommission dedicated VMware SDDC compute/network environments in
+    the cloud — this is cloud infrastructure provisioning, i.e. IT Infrastructure Management. No business-domain
+    capability applies.
