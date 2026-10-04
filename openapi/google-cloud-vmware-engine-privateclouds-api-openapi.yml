@@ -141,6 +141,24 @@ paths:
                 $ref: '#/components/schemas/Operation'
 components:
   schemas:
+    Operation:
+      type: object
+      properties:
+        name:
+          type: string
+        done:
+          type: boolean
+        error:
+          type: object
+          properties:
+            code:
+              type: integer
+            message:
+              type: string
+        response:
+          type: object
+        metadata:
+          type: object
     PrivateCloud:
       type: object
       properties:
@@ -186,24 +204,6 @@ components:
         expireTime:
           type: string
           format: date-time
-    Operation:
-      type: object
-      properties:
-        name:
-          type: string
-        done:
-          type: boolean
-        error:
-          type: object
-          properties:
-            code:
-              type: integer
-            message:
-              type: string
-        response:
-          type: object
-        metadata:
-          type: object
   securitySchemes:
     oauth2:
       type: oauth2
