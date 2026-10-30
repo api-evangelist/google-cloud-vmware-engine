@@ -1,4 +1,4 @@
-# Google Cloud VMware Engine (google-cloud-vmware-engine)
+# Google Cloud VMware Engine
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,55 +66,146 @@
 
 Google Cloud VMware Engine is a fully managed service that lets you run VMware workloads natively on Google Cloud infrastructure. It provides dedicated, single-tenant VMware SDDC environments with vSphere, vSAN, NSX-T, and HCX, enabling seamless migration and management of VMware-based applications in the cloud.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-search/google-cloud-vmware-engine/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-search/google-cloud-vmware-engine/refs/heads/main/apis.yml)
+**Areas:** Compute · Google Cloud · Migration · Private Cloud · Virtualization · VMware
 
-## Tags
+## Google Cloud VMware Engine on APIs.io
 
-- Compute
-- Google Cloud
-- Migration
-- Private Cloud
-- Virtualization
-- VMware
+Everything profiled for Google Cloud VMware Engine is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/google-cloud-vmware-engine/](https://apis.io/providers/google-cloud-vmware-engine/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (3)
 
-- **Created:** 2026-03-13
-- **Modified:** 2026-05-19
+- [Google Cloud VMware Engine Clusters API](https://apis.io/apis/google-cloud-vmware-engine/google-cloud-vmware-engine-clusters-api/) — Manage clusters within private clouds
+- [Google Cloud VMware Engine PrivateClouds API](https://apis.io/apis/google-cloud-vmware-engine/google-cloud-vmware-engine-privateclouds-api/) — Manage VMware private clouds
+- [Google Cloud VMware Engine Network Policies API](https://apis.io/apis/google-cloud-vmware-engine/google-cloud-vmware-engine-network-policies-api/) — Manage network policies
 
-## APIs
+### Published properties
 
-### Google Cloud VMware Engine API
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-The VMware Engine API enables programmatic management of VMware private clouds, clusters, and network resources on Google Cloud, including creating private clouds, managing nodes, and configuring network peering.
+#### Agentic access (1)
 
-- **Human URL:** [https://cloud.google.com/vmware-engine/docs/reference/rest](https://cloud.google.com/vmware-engine/docs/reference/rest)
-- **Base URL:** `https://vmwareengine.googleapis.com`
+Which operations an agent can call, which act, and which need a human in the loop.
 
-#### Tags
+- [Google Cloud Vmware Engine Agentic Access](https://apis.io/agentic-access/google-cloud-vmware-engine/google-cloud-vmware-engine-agentic-access/)
 
-- Clusters
-- Network Policies
-- Nodes
-- Private Clouds
-- VMware
+#### JSON Schema (1)
 
-#### Properties
+The data models the API reads and writes.
 
-- [OpenAPI](openapi/vmwareengine-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/vmwareengine.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/vmwareengine.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/vmwareengine-privatecloud.json) — [JSON Schema](https://json-schema.org/specification)
+- [Google Cloud VMware Engine Private Cloud](https://apis.io/schemas/google-cloud-vmware-engine/vmwareengine-privatecloud/)
 
-## Common Properties
+#### JSON-LD (1)
 
-- [GitHub Organization](https://github.com/googleapis)
-- [Getting Started](https://cloud.google.com/vmware-engine/docs/quickstart)
+Linked-data contexts for the provider's vocabulary.
+
+- [Vmwareengine Context](https://apis.io/jsonld/google-cloud-vmware-engine/vmwareengine-context/)
+
+#### Collections (4)
+
+Postman and Open Collection request collections.
+
+- [Google Cloud VMware Engine Clusters API](https://apis.io/collections/google-cloud-vmware-engine/open-google-cloud-vmware-engine-clusters-api/)
+- [Google Cloud VMware Engine Clusters NetworkPolicies API](https://apis.io/collections/google-cloud-vmware-engine/open-google-cloud-vmware-engine-networkpolicies-api/)
+- [Google Cloud VMware Engine Clusters PrivateClouds API](https://apis.io/collections/google-cloud-vmware-engine/open-google-cloud-vmware-engine-privateclouds-api/)
+- [Google Cloud VMware Engine API](https://apis.io/collections/google-cloud-vmware-engine/open-vmwareengine/)
+
+#### Governance rules (1)
+
+Spectral rulesets for the provider's contracts.
+
+- [Google Cloud VMware Engine — jsonschema rules](https://apis.io/rules/google-cloud-vmware-engine/google-cloud-vmware-engine-jsonschema-spectral-rules/)
+
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Google Cloud Vmware Engine Authentication](https://apis.io/security/google-cloud-vmware-engine/google-cloud-vmware-engine-authentication/)
+- [Google Cloud Vmware Engine Domain Security](https://apis.io/security/google-cloud-vmware-engine/google-cloud-vmware-engine-domain-security/)
+- [Google Cloud Vmware Engine Vulnerability Disclosure](https://apis.io/security/google-cloud-vmware-engine/google-cloud-vmware-engine-vulnerability-disclosure/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Google Cloud Vmware Engine Scopes](https://apis.io/scopes/google-cloud-vmware-engine/google-cloud-vmware-engine-scopes/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Google Cloud Vmware Engine Plans Pricing](https://apis.io/plans/google-cloud-vmware-engine/google-cloud-vmware-engine-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Google Cloud Vmware Engine Rate Limits](https://apis.io/rate-limits/google-cloud-vmware-engine/google-cloud-vmware-engine-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Google Cloud Vmware Engine Finops](https://apis.io/finops/google-cloud-vmware-engine/google-cloud-vmware-engine-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.google.com/)
+- [Getting started](https://cloud.google.com/vmware-engine/docs/quickstart)
 - [Pricing](https://cloud.google.com/vmware-engine/pricing)
-- [JSON-LD](json-ld/vmwareengine-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
-- [Integrations](https://cloud.google.com/marketplace)
+- [Blog](https://docs.cloud.google.com/feeds/vmware-engine-release-notes.xml)
+- [GitHub](https://github.com/googleapis)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 32.1** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 58.1 |
+| Contract governance | 9.8 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 14.3 |
+| Access clarity | 18.4 |
+
+**Agent readiness 22.9** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | negotiable (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | documented (partial credit) |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 32.4** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/google-cloud-vmware-engine/](https://apis.io/providers/google-cloud-vmware-engine/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Google Cloud VMware Engine: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/google-cloud-vmware-engine/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
